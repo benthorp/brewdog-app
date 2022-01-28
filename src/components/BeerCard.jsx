@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { HasLactose } from '../Utils';
 
 function BeerCard({ beer }) {
   return (
@@ -18,7 +19,7 @@ function BeerCard({ beer }) {
           position: 'relative',
         }}
       >
-        {beer.lactose && (
+        {HasLactose(beer) && (
           <Chip
             label="has dairy"
             color="warning"
