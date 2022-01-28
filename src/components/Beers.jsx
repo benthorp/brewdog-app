@@ -7,7 +7,7 @@ function Beers({ beers }) {
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4} display="flex">
         {beers.map((beer) => (
-          <BeerCard beer={beer}></BeerCard>
+          <BeerCard key={beer.id} beer={beer}></BeerCard>
         ))}
       </Grid>
     </Container>
