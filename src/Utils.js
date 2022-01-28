@@ -1,15 +1,15 @@
 export function hasLactose(beer) {
-  if (beer.method === null || beer.method.twist === null) return false;
+  if (!beer || !beer.method || !beer.method.twist) return false;
 
   return beer.method.twist.match(/Lactose/i) !== null;
 }
 
 export function hasDryHops(beer) {
-  if (beer.ingredients === null || beer.ingredients.hops === null) return false;
+  if (!beer.ingredients || !beer.ingredients.hops) return false;
 
   return (
     beer.ingredients.hops.find((hop) => {
-      if (hop.add === null) return false;
+      if (!hop.add) return false;
 
       return hop.add.match(/dry hop/i);
     }) !== undefined
