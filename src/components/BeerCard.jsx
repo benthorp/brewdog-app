@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { HasLactose } from '../Utils';
+import { HasLactose, HasDryHops } from '../Utils';
 
 function BeerCard({ beer }) {
   return (
@@ -28,6 +28,17 @@ function BeerCard({ beer }) {
               margin: '10px 10px 10px',
               position: 'absolute',
               right: 0,
+            }}
+          />
+        )}
+        {HasDryHops(beer) && (
+          <Chip
+            label="dry hops!"
+            color="success"
+            sx={{
+              margin: '10px 10px 10px',
+              position: 'absolute',
+              left: 0,
             }}
           />
         )}
