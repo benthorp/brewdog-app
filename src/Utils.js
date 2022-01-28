@@ -1,6 +1,7 @@
 export function hasLactose(beer) {
   if (!beer || !beer.method || !beer.method.twist) return false;
 
+  //the simple regex is to ensure I'm doing a case-INsensitive search
   return beer.method.twist.match(/Lactose/i) !== null;
 }
 
@@ -11,6 +12,7 @@ export function hasDryHops(beer) {
     beer.ingredients.hops.find((hop) => {
       if (!hop.add) return false;
 
+      //the simple regex is to ensure I'm doing a case-INsensitive search
       return hop.add.match(/dry hop/i);
     }) !== undefined
   );
