@@ -11,14 +11,12 @@ function App() {
 
   const [beers, setBeers] = useState([]);
 
-  // Fetch beers
   const fetchBeers = async () => {
     const response = await fetch(
       `https://api.punkapi.com/v2/beers?per_page=80`
     );
 
     const data = await response.json();
-
     setBeers(data);
   };
 

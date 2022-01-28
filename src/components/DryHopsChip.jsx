@@ -5,12 +5,13 @@ function DryHopsChip({ beer }) {
   return (
     hasDryHops(beer) && (
       <Chip
-        label="dry hops!"
+        label="Dry Hopped"
         color="success"
         sx={{
           margin: '10px 10px 10px',
           position: 'absolute',
           left: 0,
+          fontSize: 14,
         }}
       />
     )
