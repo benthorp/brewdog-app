@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react';
 import { sortByABVDesc } from './Utils';
 
 function App() {
+  const [beers, setBeers] = useState([]);
+
+  //retrieve beers from API only on the first render of App
   useEffect(() => {
     fetchBeers();
   }, []);
-
-  const [beers, setBeers] = useState([]);
 
   const fetchBeers = async () => {
     const response = await fetch(
