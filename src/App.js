@@ -1,29 +1,51 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import BeerCard from './components/BeerCard';
 
 function App() {
   const beers = [
     {
-      name: 'elvis juice',
-      tagline: "it's good",
-      description: "it's a beer",
-      image: '',
-      abv: 10.5,
+      id: 1,
+      name: 'Buzz',
+      tagline: 'A Real Bitter Experience.',
+      description:
+        'A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.',
+      image: 'https://images.punkapi.com/v2/keg.png',
+      abv: 4.5,
+      ibu: 60,
+    },
+    {
+      id: 2,
+      name: 'Trashy Blonde',
+      tagline: "You Know You Shouldn't",
+      description:
+        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
+      image: 'https://images.punkapi.com/v2/5.png',
+      abv: 9.0,
       ibu: 5,
     },
     {
-      name: 'punk IPA',
-      tagline: "it's punky",
-      description: "it's an IPA",
-      image: '',
+      id: 3,
+      name: 'Trashy Blonde',
+      tagline: "You Know You Shouldn't",
+      description:
+        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
+      image: 'https://images.punkapi.com/v2/5.png',
+      abv: 9.0,
+      ibu: 5,
+    },
+    {
+      id: 4,
+      name: 'Trashy Blonde',
+      tagline: "You Know You Shouldn't",
+      description:
+        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
+      image: 'https://images.punkapi.com/v2/5.png',
       abv: 9.0,
       ibu: 5,
     },
@@ -68,38 +90,11 @@ function App() {
             </Typography>
           </Container>
         </Box>
+
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={4} display="flex">
             {beers.map((beer) => (
-              <Grid item key={beer} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+              <BeerCard beer={beer}></BeerCard>
             ))}
           </Grid>
         </Container>
