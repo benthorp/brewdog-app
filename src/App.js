@@ -1,63 +1,34 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import BeerCard from './components/BeerCard';
-import { beers } from './TestData';
+import Beers from './components/Beers';
+import HeaderBar from './components/HeaderBar';
+import Header from './components/Header';
+import { useEffect, useState } from 'react';
 import { sortByABVDesc } from './Utils';
 
 function App() {
+  useEffect(() => {
+    fetchBeers();
+  }, []);
+
+  const [beers, setBeers] = useState([]);
+
+  // Fetch beers
+  const fetchBeers = async () => {
+    const response = await fetch(
+      `https://api.punkapi.com/v2/beers?per_page=80`
+    );
+
+    const data = await response.json();
+
+    setBeers(data);
+  };
+
+  beers.sort(sortByABVDesc());
+
   return (
     <>
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            BrewDog Beers
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container>
-            <Typography
-              component="h1"
-              variant="h3"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              GREAT BEER THAT'S GREAT FOR THE PLANET
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="text.secondary"
-              paragraph
-            >
-              Exceptional quality is the cornerstone of our brewery. All BrewDog
-              beers are brewed using the finest malted barley and hops from the
-              best producers around the world.
-            </Typography>
-          </Container>
-        </Box>
-
-        <Container sx={{ py: 8 }} maxWidth="md">
-          <Grid container spacing={4} display="flex">
-            {beers.sort(sortByABVDesc).map((beer) => (
-              <BeerCard beer={beer}></BeerCard>
-            ))}
-          </Grid>
-        </Container>
-      </main>
+      <HeaderBar />
+      <Header />
+      <Beers beers={beers} />
     </>
   );
 }

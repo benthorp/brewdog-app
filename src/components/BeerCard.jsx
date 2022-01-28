@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { hasLactose, hasDryHops } from '../Utils';
+import LactoseChip from './LactoseChip';
+import DryHopsChip from './DryHopsChip';
 
 function BeerCard({ beer }) {
   return (
@@ -19,29 +19,9 @@ function BeerCard({ beer }) {
           position: 'relative',
         }}
       >
-        {hasLactose(beer) && (
-          <Chip
-            label="has dairy"
-            color="warning"
-            className="lactose-warning"
-            sx={{
-              margin: '10px 10px 10px',
-              position: 'absolute',
-              right: 0,
-            }}
-          />
-        )}
-        {hasDryHops(beer) && (
-          <Chip
-            label="dry hops!"
-            color="success"
-            sx={{
-              margin: '10px 10px 10px',
-              position: 'absolute',
-              left: 0,
-            }}
-          />
-        )}
+        <LactoseChip beer={beer} />
+        <DryHopsChip beer={beer} />
+
         <Box
           sx={{
             display: 'flex',
