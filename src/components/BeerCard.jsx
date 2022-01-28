@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { HasLactose, HasDryHops } from '../Utils';
+import { hasLactose, hasDryHops } from '../Utils';
 
 function BeerCard({ beer }) {
   return (
@@ -19,7 +19,7 @@ function BeerCard({ beer }) {
           position: 'relative',
         }}
       >
-        {HasLactose(beer) && (
+        {hasLactose(beer) && (
           <Chip
             label="has dairy"
             color="warning"
@@ -31,7 +31,7 @@ function BeerCard({ beer }) {
             }}
           />
         )}
-        {HasDryHops(beer) && (
+        {hasDryHops(beer) && (
           <Chip
             label="dry hops!"
             color="success"

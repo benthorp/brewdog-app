@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import BeerCard from './components/BeerCard';
 import { beers } from './TestData';
+import { sortByABVDesc } from './Utils';
 
 function App() {
   return (
@@ -51,7 +52,7 @@ function App() {
 
         <Container sx={{ py: 8 }} maxWidth="md">
           <Grid container spacing={4} display="flex">
-            {beers.map((beer) => (
+            {beers.sort(sortByABVDesc).map((beer) => (
               <BeerCard beer={beer}></BeerCard>
             ))}
           </Grid>
