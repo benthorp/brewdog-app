@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -14,8 +15,21 @@ function BeerCard({ beer }) {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          position: 'relative',
         }}
       >
+        {beer.lactose && (
+          <Chip
+            label="has dairy"
+            color="warning"
+            className="lactose-warning"
+            sx={{
+              margin: '10px 10px 10px',
+              position: 'absolute',
+              right: 0,
+            }}
+          />
+        )}
         <Box
           sx={{
             display: 'flex',
@@ -34,7 +48,7 @@ function BeerCard({ beer }) {
               width: 'auto',
               height: 'auto',
             }}
-            image={beer.image}
+            image={beer.image_url}
             alt="random"
           />
         </Box>

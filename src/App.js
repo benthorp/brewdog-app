@@ -6,51 +6,9 @@ import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import BeerCard from './components/BeerCard';
+import { beers } from './TestData';
 
 function App() {
-  const beers = [
-    {
-      id: 1,
-      name: 'Buzz',
-      tagline: 'A Real Bitter Experience.',
-      description:
-        'A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.',
-      image: 'https://images.punkapi.com/v2/keg.png',
-      abv: 4.5,
-      ibu: 60,
-    },
-    {
-      id: 2,
-      name: 'Trashy Blonde',
-      tagline: "You Know You Shouldn't",
-      description:
-        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
-      image: 'https://images.punkapi.com/v2/5.png',
-      abv: 9.0,
-      ibu: 5,
-    },
-    {
-      id: 3,
-      name: 'Trashy Blonde',
-      tagline: "You Know You Shouldn't",
-      description:
-        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
-      image: 'https://images.punkapi.com/v2/5.png',
-      abv: 9.0,
-      ibu: 5,
-    },
-    {
-      id: 4,
-      name: 'Trashy Blonde',
-      tagline: "You Know You Shouldn't",
-      description:
-        'A titillating, neurotic, peroxide punk of a Pale Ale. Combining attitude, style, substance, and a little bit of low self esteem for good measure; what would your mother say? The seductive lure of the sassy passion fruit hop proves too much to resist. All that is even before we get onto the fact that there are no additives, preservatives, pasteurization or strings attached. All wrapped up with the customary BrewDog bite and imaginative twist.',
-      image: 'https://images.punkapi.com/v2/5.png',
-      abv: 9.0,
-      ibu: 5,
-    },
-  ];
-
   return (
     <>
       <AppBar position="relative">
